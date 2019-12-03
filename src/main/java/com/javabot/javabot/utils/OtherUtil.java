@@ -129,7 +129,7 @@ public class OtherUtil
         try
         {
             Response response = new OkHttpClient.Builder().build()
-                    .newCall(new Request.Builder().get().url("https://api.github.com/repos/INMD1/discord-bot-notice/releases/latest").build())
+                    .newCall(new Request.Builder().get().url("https://api.github.com/repos/INMD1/javabot-KR-/releases/latest").build())
                     .execute();
             ResponseBody body = response.body();
             if(body != null)
