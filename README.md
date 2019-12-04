@@ -15,3 +15,26 @@
 # javabot-KR
 위에 있는 봇을 한글화해서 기능 수정및 기능을 추가한 봇입니다.
 이봇은 원본 라이센스를 적용받습니다
+
+## 기능 및 장점
+* 손쉬운 실행 (Java가 설치되어 있는지 확인하십시오!)
+   * 노래의 빠른 로딩
+   * 외부 키 불필요 (Discond Bot 토큰 제외)
+   * 부드러운 재생
+   * 음악을 조정할 수있는 "DJ"역할에 대한 서버 별 설정
+   * 깨끗하고 아름다운 메뉴
+   * 채널 주제 재생 막대
+   * Youtube, Soundcloud 등을 포함한 많은 사이트 지원
+   * 많은 온라인 라디오 / 스트림 지원
+   * 로컬 파일 지원
+   * 재생 목록 지원 (웹 / YouTube 및 로컬)
+
+
+## Setup
+Please see the [Setup Page]() in the wiki to run this bot yourself!
+
+## 질문 / 제안 / 버그 보고서
+** 기능을 제안하기 전에 [추천 / 계획된 기능 목록] (https://github.com/jagrosh/MusicBot/projects/1)을 읽으십시오 **. 봇의 작동 방식에 대한 변경 사항을 제안하거나 추가 사용자 정의 옵션을 권장하거나 버그를보고하려면이 저장소에서 [Issue] (https://github.com/jagrosh/MusicBot/issues)를 자유롭게여십시오. 또는 [my Discord 서버] (https://discord.gg/0p9LSGoRLu6Pet0k)에 가입하십시오. (참고 : 추가 API 키가 필요하거나 음악 이외의 기능이 필요한 기능 요청은 수락하지 않습니다). 이 봇이 마음에 드시면 라이브러리에 별표를 추가하십시오. [** JDA **] (https://github.com/DV8FromTheWorld/JDA) 및 [** lavaplayer **] (https : //github.com/sedmelluq/lavaplayer)
+
+## 수정
+이 봇 (그리고 여기의 소스 코드)은 경험이없는 프로그래머에게는 편집하기 쉽지 않을 수 있습니다. 소스를 공개하는 주요 목적은 라이브러리의 기능을 보여주고, 다른 사람들이 봇의 작동 방식을 이해하고, Java, JDA 및 Discord 봇 개발에 대한 지식이있는 사람들이 기여할 수 있도록하는 것입니다. 이를 편집하고 컴파일하는 데 필요한 많은 요구 사항과 종속성이 있으며, 스스로 변경하려는 사용자에게는 지원이 제공되지 않습니다. 대신 기능 요청을 고려하십시오 (위 섹션 참조). 편집을 선택하면 Apache 2.0 라이센스에 따라 편집하십시오.
