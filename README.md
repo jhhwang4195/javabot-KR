@@ -14,7 +14,11 @@
 
 # javabot-KR
 위에 있는 봇을 한글화해서 기능 수정및 기능을 추가한 봇입니다.
-이봇은 원본 라이센스를 적용받습니다
+이봇은 원본 라이센스를 적용받습니다<br>
+[![Release](https://img.shields.io/github/release/INMD1/javabot-KR-)](https://github.com/INMD1/javabot-KR-/releases)
+[![License](https://img.shields.io/github/license/INMD1/javabot-KR-)](https://github.com/INMD1/javabot-KR-/blob/master/LICENSE)
+
+
 
 ## 기능 및 장점
    * 손쉬운 실행 (Java가 설치되어 있는지 확인하십시오!)<br>
