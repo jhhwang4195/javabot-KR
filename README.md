@@ -1,3 +1,7 @@
+# 봇테스트 버전 출시
+https://github.com/INMD1/javabot-KR-Beta/releases/tag/0.0.1
+여러분들이 사용후 고쳐야 할점 버그 기타등등 있으면 이슈로 알려주세요!
+
 # JMusicBot(원본)
 
 [![Downloads](https://img.shields.io/github/downloads/jagrosh/MusicBot/total.svg)](https://github.com/jagrosh/MusicBot/releases/latest)
