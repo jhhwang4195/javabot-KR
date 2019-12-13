@@ -55,7 +55,7 @@ public class JMusicBot
         Logger log = LoggerFactory.getLogger("Startup");
         
         // create prompt to handle startup
-        Prompt prompt = new Prompt("JMusicBot", "nogui 모드로 전환. -Dnogui = true 플래그를 포함하여 nogui 모드에서 수동으로 시작할 수 있습니다.", 
+        Prompt prompt = new Prompt("javabot-KR-BATA", "nogui 모드로 전환. -Dnogui = true 플래그를 포함하여 nogui 모드에서 수동으로 시작할 수 있습니다.", 
                 "true".equalsIgnoreCase(System.getProperty("nogui", "false")));
         
         // check deprecated nogui mode (new way of setting it is -Dnogui=true)
@@ -82,7 +82,7 @@ public class JMusicBot
         Bot bot = new Bot(waiter, config, settings);
         
         AboutCommand aboutCommand = new AboutCommand(Color.BLUE.brighter(),
-                                "[자신이 쉽게 호스팅 할 수있는 뮤직 봇] (https://github.com/jagrosh/MusicBot) (v"+version+")",
+                                "[자신이 쉽게 호스팅 할 수있는 뮤직 봇] (https://github.com/INMD1/javabot-KR-Beta) (v"+version+")",
                                 new String[]{"고품질 음악 재생 ","FairQueue ™ 기술 ","손쉬운 호스팅 "},
                                 RECOMMENDED_PERMS);
         aboutCommand.setIsAuthor(false);

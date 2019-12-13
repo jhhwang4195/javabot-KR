@@ -47,7 +47,7 @@ public class Listener extends ListenerAdapter
     {
         if(event.getJDA().getGuilds().isEmpty())
         {
-            Logger log = LoggerFactory.getLogger("MusicBot");
+            Logger log = LoggerFactory.getLogger("javabot-KR");
             log.warn("이 봇은 길드에 없습니다! 다음 링크를 사용하여 길드에 봇을 추가하십시오!");
             log.warn(event.getJDA().asBot().getInviteUrl(JMusicBot.RECOMMENDED_PERMS));
         }
@@ -111,7 +111,7 @@ public class Listener extends ListenerAdapter
         if(bot.getConfig().getDBots())
             return;
         jda.getTextChannelById(119222314964353025L)
-                .sendMessage("이 계정은 JMusicBot을 실행 중입니다. 이 서버에 봇 클론을 나열하지 마십시오, <@"+bot.getConfig().getOwnerId()+">.").complete();
+                .sendMessage("이 계정은 javabot-KR-BATA을 실행 중입니다. 이 서버에 봇 클론을 나열하지 마십시오, <@"+bot.getConfig().getOwnerId()+">.").complete();
         dbots.leave().queue();
     }
 }

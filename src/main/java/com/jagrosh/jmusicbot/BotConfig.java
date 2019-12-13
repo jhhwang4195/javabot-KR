@@ -20,8 +20,6 @@ import com.jagrosh.jmusicbot.utils.FormatUtil;
 import com.jagrosh.jmusicbot.utils.OtherUtil;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.typesafe.config.*;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import net.dv8tion.jda.core.OnlineStatus;
@@ -36,8 +34,7 @@ public class BotConfig
 {
     private final Prompt prompt;
     private final static String CONTEXT = "Config";
-    private final static String START_TOKEN = "/// START OF JMUSICBOT CONFIG ///";
-    private final static String END_TOKEN = "/// END OF JMUSICBOT CONFIG ///";
+
     
     private Path path = null;
     private String token, prefix, altprefix, helpWord, playlistsFolder,
@@ -98,80 +95,7 @@ public class BotConfig
             playlistsFolder = config.getString("playlistsfolder");
             aliases = config.getConfig("aliases");
             dbots = owner == 113156185389092864L;
-            
-            // we may need to write a new config file
-            boolean write = false;
-
-            // validate bot token
-            if(token==null || token.isEmpty() || token.equalsIgnoreCase("BOT_TOKEN_HERE"))
-            {
-                token = prompt.prompt("봇 토큰을 제공하십시오."
-                        + "\n토큰을 얻는 방법은 여기에서 찾을 수 있습니다 :"
-                        + "\nhttps://github.com/jagrosh/MusicBot/wiki/Getting-a-Bot-Token."
-                        + "\n봇 토큰 : ");
-                if(token==null)
-                {
-                    prompt.alert(Prompt.Level.WARNING, CONTEXT, "토큰이 제공되지 않았습니다! 종료 중 \\ n \\ n 구성 위치 : " + path.toAbsolutePath().toString());
-                    return;
-                }
-                else
-                {
-                    write = true;
-                }
-            }
-            
-            // validate bot owner
-            if(owner<=0)
-            {
-                try
-                {
-                    owner = Long.parseLong(prompt.prompt("소유자 ID가 없거나 제공된 소유자 ID가 유효하지 않습니다."
-                        + "\n봇 소유자의 사용자 ID를 제공하십시오."
-                        + "\n사용자 ID를 얻는 방법은 다음에서 찾을 수 있습니다."
-                        + "\nhttps://github.com/jagrosh/MusicBot/wiki/Finding-Your-User-ID"
-                        + "\n소유자 사용자 ID : "));
-                }
-                catch(NumberFormatException | NullPointerException ex)
-                {
-                    owner = 0;
-                }
-                if(owner<=0)
-                {
-                    prompt.alert(Prompt.Level.ERROR, CONTEXT, "유효하지 않은 사용자 ID! 종료 중 \\ n \\ n 구성 위치: " + path.toAbsolutePath().toString());
-                    System.exit(0);
-                }
-                else
-                {
-                    write = true;
-                }
-            }
-            
-            if(write)
-            {
-                String original = OtherUtil.loadResource(this, "/reference.conf");
-                byte[] bytes;
-                if(original==null)
-                {
-                    bytes = ("token = "+token+"\r\nowner = "+owner).getBytes();
-                }
-                else
-                {
-                    bytes = original.substring(original.indexOf(START_TOKEN)+START_TOKEN.length(), original.indexOf(END_TOKEN))
-                        .replace("BOT_TOKEN_HERE", token)
-                        .replace("0 // OWNER ID", Long.toString(owner))
-                        .trim().getBytes();
-                }
-                try 
-                {
-                    Files.write(path, bytes);
-                }
-                catch(IOException ex) 
-                {
-                    prompt.alert(Prompt.Level.WARNING, CONTEXT, "config.txt에 새 구성 옵션을 쓰지 못했습니다 : "+ex
-                        + "\n파일이 바탕 화면이나 다른 제한된 영역에 있지 않은지 확인하십시오. \\ n \\ n 구성 위치 : " 
-                        + path.toAbsolutePath().toString());
-                }
-            }
+                
             
             // if we get through the whole config, it's good to go
             valid = true;

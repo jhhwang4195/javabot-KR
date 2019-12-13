@@ -121,7 +121,7 @@ public class OtherUtil
         if(JMusicBot.class.getPackage()!=null && JMusicBot.class.getPackage().getImplementationVersion()!=null)
             return JMusicBot.class.getPackage().getImplementationVersion();
         else
-            return "0.2.2";
+            return "0.0.2";
     }
     
     public static String getLatestVersion()
@@ -129,7 +129,7 @@ public class OtherUtil
         try
         {
             Response response = new OkHttpClient.Builder().build()
-                    .newCall(new Request.Builder().get().url("https://api.github.com/repos/INMD1/discord-bot-notice/releases/latest").build())
+                    .newCall(new Request.Builder().get().url("https://api.github.com/repos/INMD1/javabot-KR-Beta/releases/latest").build())
                     .execute();
             ResponseBody body = response.body();
             if(body != null)
