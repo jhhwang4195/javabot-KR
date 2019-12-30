@@ -33,10 +33,10 @@ import org.json.JSONTokener;
  */
 public class OtherUtil
 {
-    public final static String NEW_VERSION_AVAILABLE = "JMusicBot의 새로운 버전이 있습니다!\n"
+    public final static String NEW_VERSION_AVAILABLE = "JAVABot-KR의 새로운 버전이 있습니다!\n"
                     + "현재 버전 : %s\n"
                     + "새로운 버전: %s\n\n"
-                    + "최신 릴리스를 얻으려면 https://github.com/jagrosh/MusicBot/releases/latest를 방문하십시오.";
+                    + "최신 릴리스를 얻으려면 https://github.com/INMD1/javabot-KR-Beta/releases/latest를 방문하십시오.";
     
     public static String loadResource(Object clazz, String name)
     {
@@ -121,7 +121,7 @@ public class OtherUtil
         if(JMusicBot.class.getPackage()!=null && JMusicBot.class.getPackage().getImplementationVersion()!=null)
             return JMusicBot.class.getPackage().getImplementationVersion();
         else
-            return "0.0.2";
+            return "0.0.3";
     }
     
     public static String getLatestVersion()

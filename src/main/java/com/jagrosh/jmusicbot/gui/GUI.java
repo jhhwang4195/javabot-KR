@@ -27,6 +27,7 @@ import com.jagrosh.jmusicbot.Bot;
  *
  * @author John Grosh <john.a.grosh@gmail.com>
  */
+
 public class GUI extends JFrame 
 {
     private final ConsolePanel console;
@@ -42,7 +43,7 @@ public class GUI extends JFrame
     public void init()
     {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setTitle("javabot-KR TEST VER");
+        setTitle("javabot-KR");
         JTabbedPane tabs = new JTabbedPane();
         tabs.add("Console", console);
         getContentPane().add(tabs);

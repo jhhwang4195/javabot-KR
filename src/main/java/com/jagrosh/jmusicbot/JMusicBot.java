@@ -55,7 +55,7 @@ public class JMusicBot
         Logger log = LoggerFactory.getLogger("Startup");
         
         // create prompt to handle startup
-        Prompt prompt = new Prompt("javabot-KR-BATA", "nogui 모드로 전환. -Dnogui = true 플래그를 포함하여 nogui 모드에서 수동으로 시작할 수 있습니다.", 
+        Prompt prompt = new Prompt("javabot-KR", "nogui 모드로 전환. -Dnogui = true 플래그를 포함하여 nogui 모드에서 수동으로 시작할 수 있습니다.", 
                 "true".equalsIgnoreCase(System.getProperty("nogui", "false")));
         
         // check deprecated nogui mode (new way of setting it is -Dnogui=true)
@@ -185,7 +185,7 @@ public class JMusicBot
         }
         catch (LoginException ex)
         {
-            prompt.alert(Prompt.Level.ERROR, "JMusicBot", ex + "\n당신이 있는지 확인하십시오. "
+            prompt.alert(Prompt.Level.ERROR, "JAVA-KR", ex + "\n당신이 있는지 확인하십시오. "
                     + "올바른 config.txt 파일을 편집하고 "
                     + "올바른 토큰 ( '비밀'이 아님) \\ n 구성 위치 : " + config.getConfigLocation());
             System.exit(1);
