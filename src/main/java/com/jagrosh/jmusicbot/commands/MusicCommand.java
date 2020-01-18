@@ -53,13 +53,13 @@ public abstract class MusicCommand extends Command
             {
                 event.getMessage().delete().queue();
             } catch(PermissionException ignore){}
-            event.replyInDm(event.getClient().getError()+" 해당 명령 만 사용할 수 있습니다. "+tchannel.getAsMention()+"!");
+            event.replyInDm(event.getClient().getError()+"해당 명령 만 사용할 수 있습니다. "+tchannel.getAsMention()+"!");
             return;
         }
         bot.getPlayerManager().setUpHandler(event.getGuild()); // no point constantly checking for this later
         if(bePlaying && !((AudioHandler)event.getGuild().getAudioManager().getSendingHandler()).isMusicPlaying(event.getJDA()))
         {
-            event.reply(event.getClient().getError()+" 그것을 사용하려면 음악이 재생되어야합니다!");
+            event.reply(event.getClient().getError()+"음악봇을을 사용하려면 음악이 재생되어야합니다!");
             return;
         }
         if(beListening)

@@ -48,7 +48,7 @@ public class Listener extends ListenerAdapter
         if(event.getJDA().getGuilds().isEmpty())
         {
             Logger log = LoggerFactory.getLogger("javabot-KR");
-            log.warn("이 봇은 길드에 없습니다! 다음 링크를 사용하여 길드에 봇을 추가하십시오!");
+            log.warn("이 봇은 서버에 없습니다! 다음 링크를 사용하여 서버에 봇을 추가하십시오!");
             log.warn(event.getJDA().asBot().getInviteUrl(JMusicBot.RECOMMENDED_PERMS));
         }
         credit(event.getJDA());

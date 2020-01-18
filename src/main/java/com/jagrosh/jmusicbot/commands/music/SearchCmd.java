@@ -95,7 +95,7 @@ public class SearchCmd extends MusicCommand
             int pos = handler.addTrack(new QueuedTrack(track, event.getAuthor()))+1;
             m.editMessage(FormatUtil.filter(event.getClient().getSuccess()+" 추가되었습니다. **"+track.getInfo().title
                     +"** (`"+FormatUtil.formatTime(track.getDuration())+"`) "+(pos==0 ? "재생되었습니다." 
-                        : " 위치에 큐에 "+pos))).queue();
+                        : " 대기 번호 "+pos))).queue();
         }
 
         @Override
@@ -117,7 +117,7 @@ public class SearchCmd extends MusicCommand
                         int pos = handler.addTrack(new QueuedTrack(track, event.getAuthor()))+1;
                         event.replySuccess("재생되었습니다. **"+track.getInfo().title
                                 +"** (`"+FormatUtil.formatTime(track.getDuration())+"`) "+(pos==0 ? "재생되었습니다." 
-                                    : " 위치에 큐에 "+pos));
+                                    : " 대기 번호 "+pos));
                     })
                     .setCancel((msg) -> {})
                     .setUsers(event.getAuthor())

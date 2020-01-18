@@ -232,7 +232,7 @@ public class PlayCmd extends MusicCommand
             Playlist playlist = bot.getPlaylistLoader().getPlaylist(event.getArgs());
             if(playlist==null)
             {
-                event.replyError("나는 찾을 수 없었습니다. `"+event.getArgs()+".txt` 재생 목록 폴더에.");
+                event.replyError("음악봇이 찾을수 없다고 합니다. `"+event.getArgs()+".txt` 재생 목록 폴더에.");
                 return;
             }
             event.getChannel().sendMessage(loadingEmoji+" 재생목록을 불려옴니다. **"+event.getArgs()+"**... ("+playlist.getItems().size()+" 아이템)").queue(m -> 
