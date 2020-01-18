@@ -114,7 +114,7 @@ public class PlayCmd extends MusicCommand
             AudioHandler handler = (AudioHandler)event.getGuild().getAudioManager().getSendingHandler();
             int pos = handler.addTrack(new QueuedTrack(track, event.getAuthor()))+1;
             String addMsg = FormatUtil.filter(event.getClient().getSuccess()+" 추가되었습니다. **"+track.getInfo().title
-                    +"** (`"+FormatUtil.formatTime(track.getDuration())+"`) "+(pos==0?"재생를 시작했습니다.":" 위치에 큐에 "+pos));
+                    +"** (`"+FormatUtil.formatTime(track.getDuration())+"`) "+(pos==0?"재생를 시작했습니다.":" 대기번호 "+pos));
             if(playlist==null || !event.getSelfMember().hasPermission(event.getTextChannel(), Permission.MESSAGE_ADD_REACTION))
                 m.editMessage(addMsg).queue();
             else
