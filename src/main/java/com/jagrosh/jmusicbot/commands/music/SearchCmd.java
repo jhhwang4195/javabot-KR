@@ -115,9 +115,9 @@ public class SearchCmd extends MusicCommand
                         }
                         AudioHandler handler = (AudioHandler)event.getGuild().getAudioManager().getSendingHandler();
                         int pos = handler.addTrack(new QueuedTrack(track, event.getAuthor()))+1;
-                        event.replySuccess("재생되었습니다. **"+track.getInfo().title
-                                +"** (`"+FormatUtil.formatTime(track.getDuration())+"`) "+(pos==0 ? "재생되었습니다." 
-                                    : " 대기 번호 "+pos));
+                        event.replySuccess("추가 되었습니다. **" + FormatUtil.filter(track.getInfo().title)
+                        + "** (`" + FormatUtil.formatTime(track.getDuration()) + "`) " + (pos==0 ? "다시 재생중..." 
+                            : " 대기번호 "+pos));
                     })
                     .setCancel((msg) -> {})
                     .setUsers(event.getAuthor())

@@ -52,7 +52,7 @@ public class PrefixCmd extends AdminCommand
         else
         {
             s.setPrefix(event.getArgs());
-            event.replySuccess("맞춤 접두사가 `" + event.getArgs() + " on *" + event.getGuild().getName() + "*");
+            event.replySuccess("맞춤 접두사가 `" + event.getArgs() + "` on *" + event.getGuild().getName() + "*");
         }
     }
 }

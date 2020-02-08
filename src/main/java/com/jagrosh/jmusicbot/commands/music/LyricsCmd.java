@@ -16,12 +16,10 @@
 package com.jagrosh.jmusicbot.commands.music;
 
 import com.jagrosh.jdautilities.command.CommandEvent;
-import com.jagrosh.jlyrics.Lyrics;
 import com.jagrosh.jlyrics.LyricsClient;
 import com.jagrosh.jmusicbot.Bot;
 import com.jagrosh.jmusicbot.audio.AudioHandler;
 import com.jagrosh.jmusicbot.commands.MusicCommand;
-import java.util.concurrent.ExecutionException;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.Permission;
 
@@ -57,7 +55,7 @@ public class LyricsCmd extends MusicCommand
         {
             if(lyrics == null)
             {
-                event.replyError("검색한 음악:" + title + "` 의 가사를 찾을 수 없습니다!");
+            	event.replyError("입력한정보 `" + title + " 를 찾을수 없습니다." + (event.getArgs().isEmpty() ? " \r\n" + "노래 이름을 수동으로 입력 해보십시오 (`lyrics [song name]`)" : ""));
                 return;
             }
 
