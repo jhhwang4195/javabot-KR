@@ -1,4 +1,4 @@
-# 봇테스트 버전 출시
+# 봇정식 버전 출시
 https://github.com/INMD1/javabot-KR-Beta/releases <br>
 여러분들이 사용후 고쳐야 할점 버그 기타등등 있으면 이슈로 알려주세요!
 
