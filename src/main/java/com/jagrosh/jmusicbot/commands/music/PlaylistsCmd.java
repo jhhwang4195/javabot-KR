@@ -30,7 +30,7 @@ public class PlaylistsCmd extends MusicCommand
     {
         super(bot);
         this.name = "playlists";
-        this.help = "사용 가능한 재생 목록을 보여줍니다";
+        this.help = "사용 가능한 재생 목록을 보여줌니다";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.guildOnly = true;
         this.beListening = false;

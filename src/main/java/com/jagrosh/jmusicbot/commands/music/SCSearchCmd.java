@@ -28,7 +28,7 @@ public class SCSearchCmd extends SearchCmd
         super(bot);
         this.searchPrefix = "scsearch:";
         this.name = "scsearch";
-        this.help = "제공된 쿼리에 대해 Soundcloud를 검색합니다.";
+        this.help = "제공된 검색어에 대해 Soundcloud를 검색합니다.";
         this.aliases = bot.getConfig().getAliases(this.name);
     }
 }

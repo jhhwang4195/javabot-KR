@@ -55,7 +55,7 @@ public class LyricsCmd extends MusicCommand
         {
             if(lyrics == null)
             {
-            	event.replyError("입력한정보 `" + title + " 를 찾을수 없습니다." + (event.getArgs().isEmpty() ? " \r\n" + "노래 이름을 수동으로 입력 해보십시오 (`lyrics [song name]`)" : ""));
+            	event.replyError("입력한정보 " + title + " 를 찾을수 없습니다." + (event.getArgs().isEmpty() ? " \r\n" + "노래 이름을 수동으로 입력 해보십시오 (`lyrics [song name]`)" : ""));
                 return;
             }
 
@@ -65,7 +65,7 @@ public class LyricsCmd extends MusicCommand
                     .setTitle(lyrics.getTitle(), lyrics.getURL());
             if(lyrics.getContent().length()>15000)
             {
-                event.replyWarning("검색한 음악: `" + title + "` 발견되었지만 정확하지 않을 수 있습니다: " + lyrics.getURL());
+                event.replyWarning("검색한 음악: " + title + " 발견되었지만 정확하지 않을 수 있습니다: " + lyrics.getURL());
             }
             else if(lyrics.getContent().length()>2000)
             {
