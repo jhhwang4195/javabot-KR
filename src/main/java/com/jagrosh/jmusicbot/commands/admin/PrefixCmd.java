@@ -29,7 +29,7 @@ public class PrefixCmd extends AdminCommand
     public PrefixCmd(Bot bot)
     {
         this.name = "prefix";
-        this.help = "서버 별 접두사를 설정합니다.";
+        this.help = "봇의 특수명령어를 설정합니다.";
         this.arguments = "<prefix|NONE>";
         this.aliases = bot.getConfig().getAliases(this.name);
     }
@@ -39,7 +39,7 @@ public class PrefixCmd extends AdminCommand
     {
         if(event.getArgs().isEmpty())
         {
-            event.replyError("접두사 또는 NONE을 포함하십시오.");
+            event.replyError("특수명령어를 입력하십시오.(ex: ww, wd,+기본 명령어(help,play).");
             return;
         }
         
@@ -47,12 +47,12 @@ public class PrefixCmd extends AdminCommand
         if(event.getArgs().equalsIgnoreCase("none"))
         {
             s.setPrefix(null);
-            event.replySuccess("접두사가 지워졌습니다.");
+            event.replySuccess("특수명령어(이)가 지워졌습니다.");
         }
         else
         {
             s.setPrefix(event.getArgs());
-            event.replySuccess("맞춤 접두사가 `" + event.getArgs() + "` on *" + event.getGuild().getName() + "*");
+            event.replySuccess("특수명령어 `" + event.getArgs() + "` on *" + event.getGuild().getName() + "*");
         }
     }
 }

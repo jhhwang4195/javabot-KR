@@ -30,7 +30,7 @@ public class RepeatCmd extends DJCommand
     {
         super(bot);
         this.name = "repeat";
-        this.help = "완료되면 음악을 대기열에 다시 추가 합니다.";
+        this.help = "완료되면 음악을 다시 재생합니다.";
         this.arguments = "[on|off]";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.guildOnly = true;
@@ -60,7 +60,7 @@ public class RepeatCmd extends DJCommand
             return;
         }
         settings.setRepeatMode(value);
-        event.replySuccess("반복 모드는 이제 `"+(value ? "ON" : "OFF")+"`");
+        event.replySuccess("반복 모드는 상태 `"+(value ? "ON" : "OFF")+"`");
     }
 
     @Override

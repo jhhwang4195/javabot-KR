@@ -30,7 +30,7 @@ public class SkiptoCmd extends DJCommand
     {
         super(bot);
         this.name = "skipto";
-        this.help = "노래를 건어 뜀니다.";
+        this.help = "노래를 건너 뜀니다.";
         this.arguments = "<position>";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.bePlaying = true;

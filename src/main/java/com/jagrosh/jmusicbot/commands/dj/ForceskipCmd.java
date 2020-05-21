@@ -41,8 +41,8 @@ public class ForceskipCmd extends DJCommand
     {
         AudioHandler handler = (AudioHandler)event.getGuild().getAudioManager().getSendingHandler();
         User u = event.getJDA().getUserById(handler.getRequester());
-        event.reply(event.getClient().getSuccess()+" 넘겼습니다. **"+handler.getPlayer().getPlayingTrack().getInfo().title
-                +"** (요청 "+(u==null ? "누군가" : "**"+u.getName()+"**")+")");
+        event.reply(event.getClient().getSuccess()+"(을) 넘겼습니다. **"+handler.getPlayer().getPlayingTrack().getInfo().title
+                +"** (요청 "+(u==null ? "유저이름" : "**"+u.getName()+"**")+")");
         handler.getPlayer().stopTrack();
     }
 }
