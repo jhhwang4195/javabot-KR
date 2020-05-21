@@ -51,7 +51,7 @@ public class SettingsManager implements GuildSettingsManager
                         o.has("prefix")          ? o.getString("prefix")          : null));
             });
         } catch(IOException | JSONException e) {
-            LoggerFactory.getLogger("Settings").warn("서버 설정을로드하지 못했습니다 (설정이 아직 설정되지 않은 경우 정상 임). "+e);
+            LoggerFactory.getLogger("Settings").warn("서버 설정을로드하지 못했습니다 (설정이 아직 설정되지 않은 경우 정상 임)"+e);
         }
     }
     
