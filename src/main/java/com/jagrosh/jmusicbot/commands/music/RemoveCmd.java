@@ -94,7 +94,7 @@ public class RemoveCmd extends MusicCommand
         }
         else
         {
-            event.replyError("제거 할 수 없습니다.**"+qt.getTrack().getInfo().title+"** 대기열에 음악을 추가하지 않았기 떄문입니다.");
+            event.replyError("제거 할 수 없습니다.**"+qt.getTrack().getInfo().title+"** (는) 대기열에 음악을 추가하지 않았기 떄문입니다.");
         }
     }
 }

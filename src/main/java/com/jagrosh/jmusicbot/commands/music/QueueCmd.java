@@ -113,7 +113,7 @@ public class QueueCmd extends MusicCommand
                     .append(ah.getPlayer().getPlayingTrack().getInfo().title).append("**\n");
         }
         return FormatUtil.filter(sb.append(success).append("현재 대기열| ").append(songslength)
-                .append(" 출품작 | `").append(FormatUtil.formatTime(total)).append("` ")
+                .append(" 음악명: | `").append(FormatUtil.formatTime(total)).append("` ")
                 .append(repeatmode ? "| " + REPEAT : "").toString());
     }
 }

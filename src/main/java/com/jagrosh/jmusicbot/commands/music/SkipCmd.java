@@ -31,7 +31,7 @@ public class SkipCmd extends MusicCommand
     {
         super(bot);
         this.name = "skip";
-        this.help = "현재 노래를 건너 뛰기 위해 투표합니다.";
+        this.help = "현재 틀고있는 노래를 건너 뜀니다.(투표로 건너뛰기도 가능합니다)";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.beListening = true;
         this.bePlaying = true;
@@ -66,7 +66,7 @@ public class SkipCmd extends MusicCommand
             {
                 User u = event.getJDA().getUserById(handler.getRequester());
                 msg+="\n"+event.getClient().getSuccess()+" Skipped **"+handler.getPlayer().getPlayingTrack().getInfo().title
-                    +"**"+(handler.getRequester()==0 ? "" : " (에 의해 요청 "+(u==null ? "누군가" : "**"+u.getName()+"**")+")");
+                    +"**"+(handler.getRequester()==0 ? "" : " (에 의해 요청 "+(u==null ? "유저이름" : "**"+u.getName()+"**")+")");
                 handler.getPlayer().stopTrack();
             }
             event.reply(msg);

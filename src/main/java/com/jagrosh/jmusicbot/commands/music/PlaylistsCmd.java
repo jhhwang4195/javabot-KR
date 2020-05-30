@@ -56,7 +56,7 @@ public class PlaylistsCmd extends MusicCommand
         {
             StringBuilder builder = new StringBuilder(event.getClient().getSuccess()+"사용 가능한 재생 목록 :\n");
             list.forEach(str -> builder.append("`").append(str).append("` "));
-            builder.append("\nType `").append(event.getClient().getTextualPrefix()).append("재생 목록을 재생하려면 재생 목록 <name>`을 (를) 재생하십시오");
+            builder.append("\nType `").append(event.getClient().getTextualPrefix()).append("재생 목록을 재생하려면 `playlists <name>`을 (를) 재생하십시오");
             event.reply(builder.toString());
         }
     }

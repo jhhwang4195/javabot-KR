@@ -52,7 +52,7 @@ public class PlayCmd extends MusicCommand
         this.loadingEmoji = bot.getConfig().getLoading();
         this.name = "play";
         this.arguments = "<title|URL|subcommand>";
-        this.help = "제공된 노래를 재생합니다.";
+        this.help = "(유투브/클플)에 있는 노래를 재생합니다.";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.beListening = true;
         this.bePlaying = false;
@@ -73,7 +73,7 @@ public class PlayCmd extends MusicCommand
                     event.replySuccess("Resumed **"+handler.getPlayer().getPlayingTrack().getInfo().title+"**.");
                 }
                 else
-                    event.replyError("DJ 만 플레이어를 일시 정지 할 수 있습니다!");
+                    event.replyError("DJ 만 음악을 일시 정지 할 수 있습니다!");
                 return;
             }
             StringBuilder builder = new StringBuilder(event.getClient().getWarning()+" Play Commands:\n");
@@ -232,7 +232,7 @@ public class PlayCmd extends MusicCommand
             Playlist playlist = bot.getPlaylistLoader().getPlaylist(event.getArgs());
             if(playlist==null)
             {
-                event.replyError("음악봇이 찾을수 없다고 합니다. `"+event.getArgs()+".txt` 재생 목록 폴더에.");
+                event.replyError("음악봇이 `"+event.getArgs()+".txt`에 있는 리스트 정보를  찾을수 없다고 합니다..");
                 return;
             }
             event.getChannel().sendMessage(loadingEmoji+" 재생목록을 불려옴니다. **"+event.getArgs()+"**... ("+playlist.getItems().size()+" 아이템)").queue(m -> 
