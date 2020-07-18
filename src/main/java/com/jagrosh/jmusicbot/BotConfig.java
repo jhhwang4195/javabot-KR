@@ -1,4 +1,5 @@
 /*
+ /*
  * Copyright 2018 John Grosh (jagrosh)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,8 +21,9 @@ import com.jagrosh.jmusicbot.utils.FormatUtil;
 import com.jagrosh.jmusicbot.utils.OtherUtil;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.typesafe.config.*;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.Game;
 
@@ -34,7 +36,8 @@ public class BotConfig
 {
     private final Prompt prompt;
     private final static String CONTEXT = "Config";
-
+    private final static String START_TOKEN = "/// START OF JMUSICBOT CONFIG ///";
+    private final static String END_TOKEN = "/// END OF JMUSICBOT CONFIG ///";
     
     private Path path = null;
     private String token, prefix, altprefix, helpWord, playlistsFolder,
@@ -61,7 +64,7 @@ public class BotConfig
         try 
         {
             // get the path to the config, default config.txt
-        	path = OtherUtil.getPath(System.getProperty("config.file", System.getProperty("config", "config.txt"))); 
+            path = OtherUtil.getPath(System.getProperty("config.file", System.getProperty("config", "config.txt")));
             if(path.toFile().exists())
             {
                 if(System.getProperty("config.file") == null)
@@ -95,14 +98,90 @@ public class BotConfig
             playlistsFolder = config.getString("playlistsfolder");
             aliases = config.getConfig("aliases");
             dbots = owner == 113156185389092864L;
-                
+            
+            // we may need to write a new config file
+            boolean write = false;
+
+            // validate bot token
+            if(token==null || token.isEmpty() || token.equalsIgnoreCase("BOT_TOKEN_HERE"))
+            {
+                token = prompt.prompt("Please provide a bot token."
+                        + "\nInstructions for obtaining a token can be found here:"
+                        + "\nhttps://github.com/jagrosh/MusicBot/wiki/Getting-a-Bot-Token."
+                        + "\nBot Token: ");
+                if(token==null)
+                {
+                    prompt.alert(Prompt.Level.WARNING, CONTEXT, "No token provided! Exiting.\n\nConfig Location: " + path.toAbsolutePath().toString());
+                    return;
+                }
+                else
+                {
+                    write = true;
+                }
+            }
+            
+            // validate bot owner
+            if(owner<=0)
+            {
+                try
+                {
+                    owner = Long.parseLong(prompt.prompt("Owner ID was missing, or the provided owner ID is not valid."
+                        + "\nPlease provide the User ID of the bot's owner."
+                        + "\nInstructions for obtaining your User ID can be found here:"
+                        + "\nhttps://github.com/jagrosh/MusicBot/wiki/Finding-Your-User-ID"
+                        + "\nOwner User ID: "));
+                }
+                catch(NumberFormatException | NullPointerException ex)
+                {
+                    owner = 0;
+                }
+                if(owner<=0)
+                {
+                    prompt.alert(Prompt.Level.ERROR, CONTEXT, "Invalid User ID! Exiting.\n\nConfig Location: " + path.toAbsolutePath().toString());
+                    return;
+                }
+                else
+                {
+                    write = true;
+                }
+            }
+            
+            if(write)
+                writeToFile();
             
             // if we get through the whole config, it's good to go
             valid = true;
         }
         catch (ConfigException ex)
         {
-            prompt.alert(Prompt.Level.ERROR, CONTEXT, ex + ": " + ex.getMessage() + "\n\n구성 위치 : " + path.toAbsolutePath().toString());
+            prompt.alert(Prompt.Level.ERROR, CONTEXT, ex + ": " + ex.getMessage() + "\n\nConfig Location: " + path.toAbsolutePath().toString());
+        }
+    }
+    
+    private void writeToFile()
+    {
+        String original = OtherUtil.loadResource(this, "/reference.conf");
+        byte[] bytes;
+        if(original==null)
+        {
+            bytes = ("token = "+token+"\r\nowner = "+owner).getBytes();
+        }
+        else
+        {
+            bytes = original.substring(original.indexOf(START_TOKEN)+START_TOKEN.length(), original.indexOf(END_TOKEN))
+                .replace("BOT_TOKEN_HERE", token)
+                .replace("0 // OWNER ID", Long.toString(owner))
+                .trim().getBytes();
+        }
+        try 
+        {
+            Files.write(path, bytes);
+        }
+        catch(IOException ex) 
+        {
+            prompt.alert(Prompt.Level.WARNING, CONTEXT, "Failed to write new config options to config.txt: "+ex
+                + "\nPlease make sure that the files are not on your desktop or some other restricted area.\n\nConfig Location: " 
+                + path.toAbsolutePath().toString());
         }
     }
     

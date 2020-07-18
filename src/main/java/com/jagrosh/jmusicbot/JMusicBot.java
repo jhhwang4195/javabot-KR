@@ -58,15 +58,6 @@ public class JMusicBot
         Prompt prompt = new Prompt("javabot-KR", "nogui 모드로 전환. -Dnogui = true 플래그를 포함하여 nogui 모드에서 수동으로 시작할 수 있습니다.", 
                 "true".equalsIgnoreCase(System.getProperty("nogui", "false")));
         
-        // check deprecated nogui mode (new way of setting it is -Dnogui=true)
-        for(String arg: args)
-            if("-nogui".equalsIgnoreCase(arg))
-            {
-                prompt.alert(Prompt.Level.WARNING, "GUI", "-nogui 플래그는 더 이상 사용되지 않습니다. "
-                        + "jar 이름 앞에 -Dnogui = true 플래그를 사용하십시오. 예 : java -jar -Dnogui = true JMusicBot.jar");
-                break;
-            }
-        
         // get and check latest version
         String version = OtherUtil.checkVersion(prompt);
         
