@@ -17,7 +17,7 @@ https://github.com/INMD1/javabot-KR-Beta/releases <br>
 원본 제작자의 프로젝트도 한번이용해 주세요 !<br>
 
 # javabot-KR
-위에 있는 봇을 한글화해서 기능 수정및 기능을 추가한 봇입니다.
+위에 있는 봇을 한글화해서 기능 수정 및 기능을 추가한 봇입니다.
 이봇은 원본 라이센스를 적용받습니다<br>
 [![Release](https://img.shields.io/github/release/INMD1/javabot-KR-)](https://github.com/INMD1/javabot-KR-/releases)
 [![License](https://img.shields.io/github/license/INMD1/javabot-KR-)](https://github.com/INMD1/javabot-KR-/blob/master/LICENSE)
@@ -45,12 +45,12 @@ https://github.com/INMD1/javabot-KR-Beta/releases <br>
 설치 패이지 가서 안내를 받고 하세요1
 
 ## 업데이트
-업데이트는 두가지로 분류가 됨니다.<br>
+업데이트는 두 가지로 분류가 됩니다.<br>
 정기업데이트:원작자가 올리는 업데이트를 가지고 업데이트 합니다.<br>
-수동업데이트:제가 직접수정해서 업데이트를 합니다.<br><br>
+수동업데이트:제가 직접 수정해서 업데이트를 합니다.<br><br>
 
 ## 질문 / 제안 / 버그 보고서
-저는 주료 이슈나 이메일로 받습니다. 
+저는 주로 이슈나 이메일로 받습니다. 
 ## 수정
 이 봇 (그리고 여기의 소스 코드)은 경험이 없는 프로그래머에게는 편집하기 쉽지 않을 수 있습니다. <br> 
 소스를 공개하는 주요 목적은 라이브러리의 기능을 보여주고, 다른 사람들이 봇의 작동 방식을 이해하고, Java, JDA 및 Discord 봇 개발에 대한 지식이 있는 사람들이 기여할 수 있도록 하는 것입니다. <br> 
